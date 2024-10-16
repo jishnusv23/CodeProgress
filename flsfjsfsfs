@@ -1,0 +1,39 @@
+[33mcommit c3987bd8b69e26831b5528a75eef5a141e25f2e2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Merge: 14a9e60 d70a999
+Author: jishnuvadakara <jishnuv750@gmail.com>
+Date:   Tue Oct 15 13:01:18 2024 +0530
+
+    Merge branch 'JS'
+
+[33mcommit d70a99916fbbb3c10c9cb18f4b3b910bb281f676[m[33m ([m[1;31morigin/JS[m[33m, [m[1;32mJS[m[33m)[m
+Author: jishnuvadakara <jishnuv750@gmail.com>
+Date:   Tue Oct 15 13:00:34 2024 +0530
+
+    flsjfls
+
+[33mcommit c3c51c16aba5ff77eddb3f39226cd9f20dec658e[m
+Author: jishnuvadakara <jishnuv750@gmail.com>
+Date:   Tue Oct 15 12:58:02 2024 +0530
+
+    fsf
+
+[33mcommit 14a9e60f87db22fcd386637aa323344eba1f932d[m[33m ([m[1;31morigin/main[m[33m)[m
+Merge: 6221005 b4e32de
+Author: JISHNU SV <148232718+jishnusv23@users.noreply.github.com>
+Date:   Tue Oct 15 12:32:28 2024 +0530
+
+    Merge pull request #1 from jishnusv23/JS
+    
+    added first stage index file
+
+[33mcommit b4e32de836b43a7c48aa48129ac1452dcd4e9c0a[m
+Author: jishnuvadakara <jishnuv750@gmail.com>
+Date:   Tue Oct 15 12:31:02 2024 +0530
+
+    added first stage index file
+
+[33mcommit 6221005600d68e340282df00f350afeffa3dfc1e[m
+Author: jishnuvadakara <jishnuv750@gmail.com>
+Date:   Tue Oct 15 12:23:20 2024 +0530
+
+    first commit
