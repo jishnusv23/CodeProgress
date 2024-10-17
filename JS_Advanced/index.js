@@ -1,2 +1,5 @@
-console.log("learn js reffer leetcode && neetcode some online web also ");
+
+// 1. LeetCode
+// 2.Array
+import LeetCode from './Leetcode'
 
