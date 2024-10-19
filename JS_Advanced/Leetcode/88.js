@@ -8,7 +8,7 @@
 
 // Example 1:
 
-// Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+let nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
 // Output: [1,2,2,3,5,6]
 // Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 // The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
@@ -25,3 +25,22 @@
 // Explanation: The arrays we are merging are [] and [1].
 // The result of the merge is [1].
 // Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
+
+
+let MergeSortedArray=(nums1,m,nums2,n)=>{
+    let i=m-1,j=n-1,k=m+n-1
+    while(j>=0){
+        if(i>=0&& nums1[i]>nums2[j]){
+            nums1[k]=nums1[i]
+            k--
+            i--
+
+        }else{
+            nums1[k]=nums2[j]
+            k--;j--
+        }
+    }
+   
+}
+MergeSortedArray(nums1,m,nums2,n)
+console.log(nums1)
