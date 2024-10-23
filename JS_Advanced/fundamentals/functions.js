@@ -36,7 +36,7 @@ const counter = (() => {
 })();
 console.log(counter.getCount()); //0
 console.log(counter.increment()); //1
-console.log(counter); //error count is not defined
+console.log(counter()); //error count is not defined
 
 //callback hell
 
@@ -63,4 +63,16 @@ const fibonacci = (n) => {
 
   return fibonacci(n - 1) + fibonacci(n - 2);
 };
-console.log(fibonacci(6))//8    
+console.log(fibonacci(6)); //8
+
+//Generator Functions
+
+function* numberGenerator() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+const gen = numberGenerator();
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);

@@ -33,3 +33,25 @@
 - Each recursive call should move towards the base case
 - Be careful with stack overflow
 - Tree travesal,Complex data structure operation
+
+## Generator Functions
+
+- is a special type of function that can be paused and resumed
+- Uses yield to push execution
+- Use-Cases:Creating unique ID,Handling Large Dataset,Memory effcient data processing 
+
+<!-- Regular Functions
+Arrow Functions
+Immediately Invoked Function Expressions (IIFEs)
+Callback Functions
+Recursive Functions
+Generator Functions
+Asynchronous Functions (async/await)
+Pure Functions
+Higher-Order Functions
+Anonymous Functions
+Named Functions
+Factory Functions
+Constructors Functions
+Prototype Functions
+Closure Functions -->
