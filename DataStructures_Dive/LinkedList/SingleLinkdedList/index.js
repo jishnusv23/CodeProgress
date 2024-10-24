@@ -47,6 +47,25 @@ class SingleLinkedList {
       this.size++;
     }
   }
+
+  RemoveMid() {
+    console.log("------------------------------------------------");
+    if (!this.head || this.head.next) {
+      return null;
+    }
+    let slow = this.head;
+    let fast = this.head;
+    let prev = null;
+    while (fast && fast.next) {
+      prev = slow;
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    console.log(prev.next.value);
+    prev.next = slow.next;
+    this.size--;
+  }
+
   RemoveIndexNode(index) {
     if (index < 0 || index > this.size) {
       console.log("Invalid Inex");
@@ -67,7 +86,46 @@ class SingleLinkedList {
       }
     }
     this.size--;
-    return removeNode.value
+    return removeNode.value;
+  }
+  //RemoveDuplicate
+  RemoveDuplicate() {
+    if (this.isEmpty()) return null;
+    let current = this.head,
+      prev = null;
+
+    let see = {};
+    while (current) {
+      if (see[current.value]) {
+        prev.next = current.next;
+        this.size--;
+      } else {
+        see[current.value] = true;
+        prev = current;
+      }
+      current = current.next;
+    }
+  }
+  RemoveValue(value) {
+    if (this.isEmpty()) return null;
+
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      this.size--;
+      return value;
+    } else {
+      let prev = this.head;
+      while (prev.next && prev.next.value !== value) {
+        prev = prev.next;
+      }
+      if (prev.next) {
+        let removeNOde = prev.next;
+        prev.next = removeNOde.next;
+        this.size--;
+        return removeNOde.value;
+      }
+    }
+    return null;
   }
   // Reverse the list
   Reverse() {
@@ -103,14 +161,21 @@ result.Add(4);
 result.Add(6);
 result.Add(8);
 result.Add(9);
+result.Add(6)
+result.Add(13);
 result.Add(2);
 result.Print();
-result.Reverse();
+// result.Reverse();
 console.log("reverse______________");
-result.Print();
-result.Insert(10, 2);
-console.log("Insert-after");
-result.Print();
-result.RemoveIndexNode(4)
-console.log('removeIndexNode')
+result.RemoveDuplicate()
 result.Print()
+// result.Print();
+// result.Insert(10, 2);
+// console.log("Insert-after");
+// result.Print();
+// result.RemoveIndexNode(4);
+// result.RemoveMid()
+// console.log("removeIndexNode");
+// result.Print();
+// console.log(result.RemoveValue(4))
+// result.Print();
