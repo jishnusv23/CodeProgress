@@ -194,19 +194,28 @@ function CreateCounter() {
     },
     decrement: function () {
       count--;
-      return count
+      return count;
     },
-    getCount:function(){
-      return count
-
-    }
+    getCount: function () {
+      return count;
+    },
   };
 }
 
-const counterstate=CreateCounter()
-console.log(counterstate.increment())
-console.log(counterstate.decrement())
-console.log(counterstate.increment())
-console.log(counterstate.decrement())
-console.log(counterstate.decrement())
-console.log(counterstate.getCount())
+const counterstate = CreateCounter();
+console.log(counterstate.increment());
+console.log(counterstate.decrement());
+console.log(counterstate.increment());
+console.log(counterstate.decrement());
+console.log(counterstate.decrement());
+console.log(counterstate.getCount());
+
+//FirstClass Function
+const sayHi = () => {
+  return "Hi";
+};
+
+const greeting = (hiFn, name) => {
+  console.log(hiFn()+name);
+};
+greeting(sayHi,'jishnu')

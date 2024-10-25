@@ -85,5 +85,6 @@
 - Help in creating Private varible and methods
 -
 
-
+## FirstClass Function
+- a function can be assigned as a value to a variable, can be passed as an argument to other functions and can be returned by another function.
 
