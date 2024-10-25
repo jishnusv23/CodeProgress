@@ -50,7 +50,7 @@ class SingleLinkedList {
 
   RemoveMid() {
     console.log("------------------------------------------------");
-    if (!this.head || this.head.next) {
+    if (!this.head ||! this.head.next) {
       return null;
     }
     let slow = this.head;
@@ -176,6 +176,4 @@ result.Print()
 // result.RemoveIndexNode(4);
 // result.RemoveMid()
 // console.log("removeIndexNode");
-// result.Print();
-// console.log(result.RemoveValue(4))
 // result.Print();
