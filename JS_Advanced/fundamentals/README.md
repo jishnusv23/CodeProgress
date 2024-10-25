@@ -38,20 +38,52 @@
 
 - is a special type of function that can be paused and resumed
 - Uses yield to push execution
-- Use-Cases:Creating unique ID,Handling Large Dataset,Memory effcient data processing 
+- Use-Cases:Creating unique ID,Handling Large Dataset,Memory effcient data processing
 
-<!-- Regular Functions
-Arrow Functions
-Immediately Invoked Function Expressions (IIFEs)
-Callback Functions
-Recursive Functions
-Generator Functions
-Asynchronous Functions (async/await)
-Pure Functions
-Higher-Order Functions
-Anonymous Functions
-Named Functions
-Factory Functions
-Constructors Functions
-Prototype Functions
-Closure Functions -->
+## Higher Order Funtion
+
+- HOC is function that either
+- Takes one or more functions as parameter (arguments)
+- Return a function as its result or does both
+
+## Pure Function
+
+- Give the same Input,it always return the same output
+- It has no side effects( dosen't modify external state)
+
+## Named Function
+
+- Named Functions are funtion that have and identifier (name)
+- They can be referenced before they're defined (Hoisting)
+- Better for redability and sefl-documentation
+- Using for Recursion and stack traces in debugging
+
+## Factory Functions
+
+- Factory functions are function that create and object
+- They're an alternative to constructors and class
+- They Use Closer to Create private data
+
+## Constructor Function
+
+- Constructor function create object usign "new " keyword
+- 'this' keyword refers to the new object benig created
+- Can add methods and properties to object
+-
+
+## Prototype Function
+
+- Prototype are the Mechanisum for the Object Inheritance
+- Every object haas a prototype (expect null)
+- Inheritance implementaion
+
+## Closure Function
+
+- A Closure if Function that has access to variables in its outerscope
+- It "remebers" these varibale even after the outer function finished
+- Provide Data Privacy throungh encapsulation
+- Help in creating Private varible and methods
+-
+
+
+
