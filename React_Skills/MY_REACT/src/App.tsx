@@ -1,5 +1,10 @@
 import "./App.css";
-import Another from "./Components/useMemo/Another";
+// import UnControlled from "./Components/Controlled&Uncontrolled/UnControlled";
+// import Timer from "./Components/Timer";
+// import Problem1 from "./Components/Problem1";
+// import Parent from "./Components/useCallback/Parent";
+// import Debounce from "./Components/Debounce/Debounce";-
+// import Another from "./Components/useMemo/Another";
 // import FirstExample from "./Components/useMemo/FirstExample";
 // import Todo from "./Components/useReducer/Todo";
 // import ParentComp from "./Components/Parent-To-Child/ParentComp";
@@ -10,14 +15,19 @@ function App() {
   return (
     <>
       <div className=" text-xl">
-        <h1>APP For </h1>
+        <h1 className="font-bold text-3xl">APP For Study </h1>
         {/* <StateCounter/> */}
         {/* <ParentComp /> */}
         {/* <UseReducerCompo /> */}
         {/* <Todo/> */}
 
         {/* <FirstExample/> */}
-        <Another />
+        {/* <Another /> */}
+        {/* <Debounce /> */}
+        {/* <Parent/> */}
+        {/* <Problem1 /> */}
+        {/* <Timer /> */}
+        {/* <UnControlled/> */}
       </div>
     </>
   );
