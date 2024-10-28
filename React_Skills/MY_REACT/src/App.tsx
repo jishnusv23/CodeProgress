@@ -1,6 +1,7 @@
 import "./App.css";
-import Higher from "./Components/HOC/Higher";
-import Higher2 from "./Components/HOC/Higher2";
+import Parent from "./Components/CustomHooks/Parent";
+// import Higher from "./Components/HOC/Higher";
+// import Higher2 from "./Components/HOC/Higher2";
 // import UnControlled from "./Components/Controlled&Uncontrolled/UnControlled";
 // import Timer from "./Components/Timer";
 // import Problem1 from "./Components/Problem1";
@@ -30,8 +31,9 @@ function App() {
         {/* <Problem1 /> */}
         {/* <Timer /> */}
         {/* <UnControlled/> */}
-        <Higher />
-        <Higher2 />
+        {/* <Higher />
+        <Higher2 /> */}
+        <Parent/>
       </div>
     </>
   );
