@@ -12,6 +12,7 @@ const person = {
   name: "Jishnu",
 
   sayHello: () => {
+    
     console.log(this.name);
   },
 };
