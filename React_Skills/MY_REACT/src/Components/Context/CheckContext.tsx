@@ -7,7 +7,7 @@ interface CheckContextType {
 
 export const CheckContext = createContext<CheckContextType | undefined>(
   undefined
-);
+)
 
 interface MyContextProps {
   children: ReactNode;
@@ -20,5 +20,5 @@ export const MyContext: React.FC<MyContextProps> = ({ children }) => {
     <CheckContext.Provider value={{ count, setCount }}>
       {children}
     </CheckContext.Provider>
-  );
-};
+  )
+}
