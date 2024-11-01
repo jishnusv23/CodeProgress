@@ -2,7 +2,9 @@
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
-import Debouncing from "./Components/Workout/Debouncing";
+import UseMemo from "./Components/Workout/UseMemo";
+// import Visible from "./Components/Workout/Visible";
+// import Debouncing from "./Components/Workout/Debouncing";
 // import REfExample from "./Components/Workout/REfExample";
 
 // import Parent from "./Components/Workout/Parent";
@@ -16,7 +18,9 @@ function App() {
       {/* <Parent/>
     <Child/> */}
       {/* <REfExample/> */}
-      <Debouncing />
+      {/* <Debouncing /> */}
+      {/* <Visible /> */}
+      <UseMemo/>
     </>
   );
 }
