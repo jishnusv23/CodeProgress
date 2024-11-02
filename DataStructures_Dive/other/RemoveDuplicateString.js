@@ -19,3 +19,16 @@ function RemoveStringWithout(str){
     return result
 }
 console.log(RemoveStringWithout('jishnujj'))
+
+function RemoveStringWithout2(str){
+    let hashtable={}
+    let result=''
+    for(let i=0;i<str.length;i++){
+        if(!hashtable[str[i]]){
+            result+=str[i]
+            hashtable[str[i]]=true
+        }
+}
+return result
+}
+console.log(RemoveStringWithout2('jishnuvjishnuv'))

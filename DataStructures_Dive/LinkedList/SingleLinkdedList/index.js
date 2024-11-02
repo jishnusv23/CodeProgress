@@ -50,7 +50,7 @@ class SingleLinkedList {
 
   RemoveMid() {
     console.log("------------------------------------------------");
-    if (!this.head ||! this.head.next) {
+    if (!this.head || !this.head.next) {
       return null;
     }
     let slow = this.head;
@@ -64,6 +64,27 @@ class SingleLinkedList {
     console.log(prev.next.value);
     prev.next = slow.next;
     this.size--;
+  }
+  Sort() {
+    if (this.isEmpty() || !this.head.next) {
+      console.log("its Empty List");
+      return;
+    }
+    let swapped, current;
+    do {
+       current = this.head;
+       swapped = false;
+
+      while (current.next) {
+        if (current.value > current.next.value) {
+          let temp = current.value;
+          current.value = current.next.value;
+          current.next.value = temp;
+          swapped = true;
+        }
+        current=current.next
+      }
+    } while (swapped);
   }
 
   RemoveIndexNode(index) {
@@ -161,14 +182,16 @@ result.Add(4);
 result.Add(6);
 result.Add(8);
 result.Add(9);
-result.Add(6)
+result.Add(6);
 result.Add(13);
 result.Add(2);
-result.Print();
+// result.Print();
 // result.Reverse();
-console.log("reverse______________");
-result.RemoveDuplicate()
-result.Print()
+// console.log("reverse______________");
+// result.RemoveDuplicate();
+result.Print();
+result.Sort();
+result.Print();
 // result.Print();
 // result.Insert(10, 2);
 // console.log("Insert-after");
