@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkbox Toggle</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Writesomething</h1>
- 
-    <input type="checkbox" id="myCheckbox">
+
+    <input type="checkbox" id="myCheckbox" />
     <label for="myCheckbox">Toggle me</label>
-    <br>
-    
+    <br />
+
     <button onclick="handlebutton()">Click</button>
 
     <script>
-        const handlebutton = () => {
-            const checkbox = document.getElementById('myCheckbox');
-            checkbox.checked = !checkbox.checked; 
-        }
+      const handlebutton = () => {
+        const checkbox = document.getElementById("myCheckbox");
+        checkbox.checked = !checkbox.checked;
+      };
+              const newDiv = document.createElement('div');
+                newDiv.textContent = "Hello World!";
+                document.body.appendChild(newDiv);
     </script>
-</body>
+  </body>
 </html>
