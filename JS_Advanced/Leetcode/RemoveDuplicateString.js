@@ -1,4 +1,4 @@
-let str='helloworld'
+    let str='helloworld'
 
 function RemoveDuplicate(str){
     let set={}
