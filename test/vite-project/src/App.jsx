@@ -2,8 +2,9 @@
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
-import ErrorBoundary from "./Components/ErrorBoundary/ErrorBoundary";
-import ErrorProneComponent from "./Components/ErrorBoundary/ErrorProneComponent";
+import Parent from "./Components/ForwardRef/Parent";
+// import ErrorBoundary from "./Components/ErrorBoundary/ErrorBoundary";
+// import ErrorProneComponent from "./Components/ErrorBoundary/ErrorProneComponent";
 // import UseMemo from "./Components/Workout/UseMemo";
 // import Visible from "./Components/Workout/Visible";
 // import Debouncing from "./Components/Workout/Debouncing";
@@ -23,9 +24,11 @@ function App() {
       {/* <Debouncing /> */}
       {/* <Visible /> */}
       {/* <UseMemo/> */}
-      <ErrorBoundary>
+      <h1>App file</h1>
+      {/* <ErrorBoundary>
         <ErrorProneComponent />
-      </ErrorBoundary>
+      </ErrorBoundary> */}
+      <Parent />
     </>
   );
 }
