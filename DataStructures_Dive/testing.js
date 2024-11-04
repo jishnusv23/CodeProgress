@@ -1,6 +1,1 @@
-//linkedlist
-//binarysearch
-//recursion
-//sort
-//heap
-
+//queue
