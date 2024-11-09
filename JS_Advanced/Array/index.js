@@ -1,1 +1,0 @@
-import VowelsCount from './VowelsCount'
