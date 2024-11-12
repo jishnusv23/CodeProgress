@@ -66,13 +66,6 @@ console.log(ConuntOjbectUseRecursion(obj3));
 //*----------------------------------------------------------------------------------------------------------------------------
 
 //*sum of the numbers only
-const obj4 = {
-  a: 1,
-  b: "hello",
-  c: 3,
-  d: true,
-  e: 5,
-};
 
 function SumOfNumeric(obj4) {
   return Object.values(obj4).reduce((acc, cuu) => {
