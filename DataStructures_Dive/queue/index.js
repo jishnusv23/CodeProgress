@@ -88,4 +88,3 @@ queue.print()
 // qu.enqueue(4);
 // qu.enqueue(5);
 // console.log(qu.rmMidd());
-console.log('first')
