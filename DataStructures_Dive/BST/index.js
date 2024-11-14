@@ -50,6 +50,22 @@ class BinarySearchTree {
       return this.min(root.left);
     }
   }
+  max(root){
+    if(!root.right){
+      return root.value
+    }else{
+      return this.max(root.right)
+    }
+  }
+  height(root){
+    if(root==null){
+      return 0
+    }
+    let left=this.height(root.left)
+    let right=this.height(root.right)
+
+    return Math.max(left,right)+1
+  }
 
   //delete BST node
   delete(value) {
@@ -90,3 +106,5 @@ console.log('--------------------');
 // console.log(tree.Search(tree.root, 5));
 tree.delete(3);
 tree.InOrder(tree.root);
+// console.log('first')
+// console.log(tree.height(tree.root))
