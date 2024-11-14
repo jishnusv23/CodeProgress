@@ -51,3 +51,10 @@ class BreadthFirstBST {
     }
   }
 }
+
+const bst=new BreadthFirstBST()
+bst.Insert(450)
+bst.Insert(40)
+bst.Insert(48)
+bst.Insert(42)
+bst.LevelOrder()
