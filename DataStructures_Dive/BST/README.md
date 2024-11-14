@@ -31,6 +31,11 @@
 - DFS explores as far as possible along a branch before backtracking.focusing on depth
 
 ## Types of DFS
+
 - Inorder (Left → Root → Right)
 - Preorder (Root → Left → Right)
 - Postorder (Left → Right → Root)
+
+## Level Order Traversal (Breadth First Search or BFS)
+
+- technique is defined as a method to traverse a Tree such that all nodes present in the same level are traversed completely before traversing the next level.
