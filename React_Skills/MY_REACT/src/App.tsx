@@ -1,5 +1,6 @@
 import "./App.css";
-import Parent from "./Components/CustomHooks/Parent";
+import CounterRedux from "./Components/CounterRedux";
+// import Parent from "./Components/CustomHooks/Parent";
 // import Higher from "./Components/HOC/Higher";
 // import Higher2 from "./Components/HOC/Higher2";
 // import UnControlled from "./Components/Controlled&Uncontrolled/UnControlled";
@@ -33,7 +34,8 @@ function App() {
         {/* <UnControlled/> */}
         {/* <Higher />
         <Higher2 /> */}
-        <Parent/>
+        {/* <Parent/> */}
+        <CounterRedux />
       </div>
     </>
   );
