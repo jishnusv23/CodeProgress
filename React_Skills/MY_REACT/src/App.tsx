@@ -1,5 +1,6 @@
 import "./App.css";
-import CounterRedux from "./Components/CounterRedux";
+import NestedSelection from "./Components/NestedSelection/NestedSelection";
+// import CounterRedux from "./Components/CounterRedux";
 // import Parent from "./Components/CustomHooks/Parent";
 // import Higher from "./Components/HOC/Higher";
 // import Higher2 from "./Components/HOC/Higher2";
@@ -35,7 +36,8 @@ function App() {
         {/* <Higher />
         <Higher2 /> */}
         {/* <Parent/> */}
-        <CounterRedux />
+        {/* <CounterRedux /> */}
+        <NestedSelection/>
       </div>
     </>
   );
