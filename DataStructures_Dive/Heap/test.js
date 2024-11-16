@@ -1,3 +1,4 @@
+//Testing  and practising here
 
 class HeapTest {
   constructor() {
@@ -68,6 +69,7 @@ class HeapTest {
     this.heapifyDown();
     return removed;
   }
+ 
 
   display() {
     console.log(this.heap);
@@ -105,8 +107,10 @@ heap.AddNew(8);
 heap.AddNew(2);
 
 // Displaying heap
-heap.display(); // Output: [3, 5, 15, 10, 8]
-console.log(heap.Peek());
-// console.log(heap.remove());
-console.log(heap.removeValue(3));
+// heap.display(); // Output: [3, 5, 15, 10, 8]
+// console.log(heap.Peek());
+// // console.log(heap.remove());
+// console.log(heap.removeValue(3));
+heap.display();
+
 heap.display();
