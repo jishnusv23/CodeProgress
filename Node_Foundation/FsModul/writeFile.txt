@@ -1,0 +1,2 @@
+This is the content of the write file.
+This is the appended content.
