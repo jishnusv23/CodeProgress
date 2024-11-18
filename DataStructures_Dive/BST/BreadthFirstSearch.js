@@ -45,7 +45,8 @@ class BreadthFirstBST {
       console.log(curent.value);
       if (curent.left) {
         queue.push(curent.left);
-      } else {
+      } 
+      if(curent.right) {
         queue.push(curent.right);
       }
     }
