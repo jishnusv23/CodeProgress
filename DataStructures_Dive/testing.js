@@ -1,2 +1,0 @@
-//queue
-console.log('first')
