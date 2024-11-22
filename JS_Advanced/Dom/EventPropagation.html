@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="grandparent" style="border: 1px solid red; padding: 20px">
+      Grandparent
+      <div id="parent" style="border: 1px solid blue; padding: 20px">
+        parent
+        <div id="child" style="border: 1px solid green; padding: 20px">
+          Child
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("grandparent").addEventListener(
+        "click",
+        () => alert("Grandparent (capturing phase)"),
+        true // Capturing phase
+      );
+
+      document.getElementById("parent").addEventListener("click", () => {
+        alert("Parent bubbling phase"), false; //bubbling phase
+      });
+      document.getElementById("child").addEventListener("click", () => {
+        alert("Child elemt clicked");
+      });
+    </script>
+  </body>
+</html>
