@@ -18,7 +18,7 @@ const input = [
 
 let numberMap = new Map();
 input.forEach(({ id, numbers }) => {
-  console.log(id, numbers);
+
   numbers.forEach((numbers, index) => {
     if (!numberMap.has(numbers)) {
       numberMap.set(numbers, { numbers, count: 0, in: [] });
@@ -29,6 +29,29 @@ input.forEach(({ id, numbers }) => {
   });
 });
 
-// console.log("🚀 ~ file: Occurrences.js:20 ~ numberMap:", numberMap);
-const output = Array.from(numberMap.values());
-console.log("🚀 ~ file: Occurrences.js:34 ~ output:", output)
+// const output = Array.from(numberMap.values());
+// console.log("🚀 ~ file: Occurrences.js:34 ~ output:", output)
+const result = [];
+function findOrCreate(numbers) {
+  for (let i = 0; i < result.length; i++) {
+    if (result[i].numbers === numbers) {
+      return result[i];
+    }
+  }
+  const newEntry = { numbers, count: 0, in: [] };
+  result.push(newEntry);
+  return newEntry;
+}
+
+for (let i = 0; i < input.length; i++) {
+  const { id, numbers } = input[i];
+  for (let j = 0; j < numbers.length; j++) {
+    const number = numbers[j];
+    const entery = findOrCreate(number);
+    entery.count += 1;
+    if(!entery.in.includes(id)){
+      entery.in.push(id)
+    }
+  }
+}
+console.log(result,'------------------------')
