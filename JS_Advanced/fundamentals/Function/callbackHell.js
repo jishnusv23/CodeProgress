@@ -1,52 +1,28 @@
-//CallbackHell without usiing promise
-
-function getArticles(userId) {
-  return new Promise((resovle) => {
-    setTimeout(() => {
-      console.log("userId", userId);
-      resovle({ username: "DevJishnu" });
-    }, 100);
-  });
+function taskFirst(data, callback) {
+  setTimeout(() => {
+    console.log(`first task ${data}`);
+    callback(data + 1);
+  }, 1000);
+}
+function taskSecond(data, callback) {
+  setTimeout(() => {
+    console.log(`second task ${data}`);
+    callback(data + 1);
+  }, 1000);
+}
+function taskThird(data, callback) {
+  setTimeout(() => {
+    console.log(`third ${data}`);
+    callback(data+1)
+  }, 1000);
 }
 
-function getUserData(name) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("userName", name);
-      resolve({ name: "JISHNU SV" });
-    }, 1000);
+taskFirst(1, (result1) => {
+  console.log(`result1 :${result1}`);
+  taskSecond(result1, (result2) => {
+    console.log(`result2 : ${result2}`);
+    taskThird(result2,(result3)=>{
+      console.log(`result3 : ${result3}`)
+    })
   });
-}
-function getAddress(user) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("userDetaiils", user);
-      resolve({ address: "123street" });
-    }, 1000);
-  });
-}
-
-// getArticles(20, (user) => {
-//   console.log("Fetch articles", user);
-//   getUserData(user.username, (name) => {
-//     console.log(name);
-//     getAddress(name, (item) => {
-//       console.log(item);
-//     });
-//   });
-// });
-
-//How to avoid callback hell
-
-getArticles(20)
-  .then((user) => {
-    console.log("user");
-    return getUserData(user.username);
-  })
-  .then((user) => {
-    console.log(user, "-------");
-    return getAddress(user.address);
-  })
-  .then((user) => {
-    console.log("address", user);
-  });
+});
