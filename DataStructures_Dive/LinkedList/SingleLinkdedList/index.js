@@ -200,3 +200,4 @@ result.Print();
 // result.RemoveMid()
 // console.log("removeIndexNode");
 // result.Print();
+console.log('first')
