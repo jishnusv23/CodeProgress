@@ -10,3 +10,20 @@ const double = hocExample(number, (num) => num * 2);
 // console.log(double);
 
 //another example
+function createAdder(x) {
+  return function (y) {
+    return x + y;
+  };
+}
+const add = createAdder(5);
+console.log(add(10));
+
+//another example
+function greeting(name, callback) {
+  console.log(`Hello ${name}!`);
+  callback()
+}
+function tatta(){
+  console.log('see you...............')
+}
+greeting('jishnu',tatta)
