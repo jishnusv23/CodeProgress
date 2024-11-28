@@ -175,6 +175,41 @@ class SingleLinkedList {
       console.log(listValues);
     }
   }
+  isPalindrome(){
+    if(this.isEmpty()||!this.head){
+      return true
+    }
+    let slow=this.head
+    let fast=this.head
+    while (fast.next&&fast.next.next) {
+      slow=slow.next
+      fast=fast.next.next
+    }
+    // reverse the half 
+    let prev=null
+    let curent=slow
+    while(curent){
+      // first assign temp variable to current.next
+      let next=curent.next
+      curent.next=prev
+      prev=curent
+      curent=next
+    }
+
+    // then compare with firsthalf and secondhalf
+    let firsthalf=this.head
+    let secondhalf=prev
+    let isPalindrome=true
+    while(secondhalf){
+      if(firsthalf.value!==secondhalf.value){
+        isPalindrome=false
+        break
+      }
+      firsthalf=firsthalf.next
+      secondhalf=secondhalf.next
+    }
+    return isPalindrome
+  }
 }
 
 let result = new SingleLinkedList();
