@@ -1,5 +1,5 @@
-const number = 52789;
 
+const number = 52789;
 const LargestDigits = (number) => {
   const digits = number.toString().split("");
   console.log(
