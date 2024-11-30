@@ -17,7 +17,7 @@ class BinarySearchTree {
     const node = new Node(value);
     if (this.isEmpty()) {
       this.root = node;
-    } else {
+    } else {  
       this.insertNode(this.root, node);
     }
   }
