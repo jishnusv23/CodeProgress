@@ -67,6 +67,13 @@ class BSTTOI {
     }
     return root
   }
+  height(root){
+    if(!root) return -1
+    let left=this.height(root.left)
+    let right=this.height(root.right)
+    let heightOFBST=Math.max(left,right)+1
+    return heightOFBST
+  }
 
   //BFS
   levelOrder(){
@@ -82,6 +89,34 @@ class BSTTOI {
         }
     }
   }
+  //kthlargest
+  KthLargest(root,k){
+    let ref
+    let count=0
+    function DFS(root){
+      if(!root) return 
+      DFS(root.right)
+      count++
+
+      if(count===k){
+        ref=root.value
+      }
+      DFS(root.left)
+    }
+    DFS(root)
+    return ref
+  }
+  //isValidBST
+  isValidBST(root,min=null,max=null){
+    if(!root) return true
+
+    if((min!=null&& root.value<=min)||(max!=null && root.value>=max)){
+      return false
+    }
+
+    return this.isValidBST(root.left,min,root.value)&&this.isValidBST(root.right,root.value,max)
+  }
+
 
   //DFS
 
@@ -121,5 +156,9 @@ console.log("Pre-order Traversal:");
 // bst.PreOrder(bst.root);
 bst.levelOrder()
 console.log('---------------------------------')
-bst.delete(30)
-bst.levelOrder()
+// bst.delete(30)
+console.log(bst.KthLargest(bst.root,2))
+// console.log(bst.isValidBST(bst.root))
+
+// console.log(bst.height(bst.root))
+// bst.levelOrder()

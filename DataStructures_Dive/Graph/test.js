@@ -1,84 +1,108 @@
-class GraphTest{
-  constructor(){
-    this.adlist=[]
+//TOI GRAPH
+
+
+class Graph {
+  constructor() {
+    this.addlist = [];
   }
-  addVertex(vertex){
-    if(!this.adlist[vertex]){
-      this.adlist[vertex]=new Set()
+  addVertex(vertex) {
+    if (!this.addlist[vertex]) {
+      this.addlist[vertex] = new Set();
     }
   }
-  addEdges(vertex1,vertex2){
-    if(!this.adlist[vertex1]){
-      this.addVertex(vertex1)
+  addEdges(vertex1, vertex2) {
+    if (!this.addlist[vertex1]) {
+      this.addVertex(vertex1);
     }
-    if(!this.adlist[vertex2]){
-      this.addVertex(vertex2)
+    if (!this.addlist[vertex2]) {
+      this.addVertex(vertex2);
     }
+    this.addlist[vertex1].add(vertex2);
+    this.addlist[vertex2].add(vertex1);
   }
-  removeEdges(vertex1,vertex2){
-    this.adlist[vertex1].delete(vertex2)
-    this.adlist[vertex2].delete(vertex1)
+  removeEdges(vertex1, vertex2) {
+    this.addlist[vertex1].delete(vertex2);
+    this.addlist[vertex2].delete(vertex1);
   }
-  remove(vertex){
-    if(!this.adlist[vertex]){
-      return
+  hasCycle(vertex, visited = new Set(), parent = null) {
+    visited.add(vertex);
+    for (const ele of this.addlist[vertex]) {
+      if (!visited.has(ele)) {
+        if (this.hasCycle(ele, visited, vertex)) {
+          return true;
+        }
+      } else if (ele !== parent) {
+        return true;
+      }
     }
-    for(let vertex2 of this.adlist[vertex]){
-      this.removeEdges(vertex,vertex2)
-    }
-    delete this.adlist[vertex]
+    return false;
   }
-  Display(){
-    for (const vertext in this.adlist) {
-      console.log(vertext+"->"+[...this.adlist[vertext]])
-    }
-  }
-  hasEdges(vertex1,vertex2){
-    return this.adlist[vertex1].has(vertex2)&&this.adlist[vertex2].has(vertex1)
-  }
-  bfs(startVertex){
-    let visited={}
-    let queue=[startVertex]
-    visited[startVertex]=true
-    while (queue.length>0) {
-      let current=queue.shift()
-      console.log(current)
-      for(let neighbor of this.adlist[current]){
-        if(!visited[neighbor]){
-          queue.push(neighbor)
-          visited[neighbor]=true
+  countCycles() {
+    let visited = new Set();
+    let cycleCount = 0;
+
+    for (const vertex in this.adjList) {
+      if (!visited.has(vertex)) {
+        // Call the DFS helper to detect cycles
+        if (this.hasCycle(vertex, visited, null)) {
+          cycleCount++;
         }
       }
     }
+    return cycleCount;
   }
-  Dfs(startVertex){
-    let visited={}
-    let stack=[]
-    visited[startVertex]=true
+  DFS(startVertex) {
+    let stack = [startVertex];
+    let visited = {};
+    visited[startVertex] = true;
     while (stack.length) {
-      let curent=stack.pop()
-      console.log(curent)
-      for(let neighbor of this.adlist[curent]){
-        if(!visited[neighbor]){
-          stack.push(neighbor)
-          visited[neighbor]=true
+      let currentVetext = stack.pop();
+      console.log(currentVetext);
+      for (let neighbor of this.addlist[currentVetext]) {
+        if (!visited[neighbor]) {
+          stack.push(neighbor);
+          visited[neighbor] = true;
         }
       }
     }
   }
-  hasCycle(vertex,visited=new Set(),parent=null){
-    visited.add(vertex)
-    for(let ele of this.adlist[vertex]){
-      if(!visited.has(ele)){
-        if(this.hasCycle(ele,visited,vertex)){
-          return true
+  BFS(startVertex) {
+    let queue = [startVertex];
+    let visited = {};
+    visited[startVertex] = true;
+    while (queue.length > 0) {
+      const currentvertex = queue.shift();
+      console.log(currentvertex);
+      for (let neighbor of this.addlist[currentvertex]) {
+        if (!visited[neighbor]) {
+          queue.push(neighbor);
+          visited[neighbor] = true;
         }
-
-      }else if (ele!==parent){
-        return true
       }
-
     }
-    return false
+  }
+  removeVertex(vertex) {
+    for (let addvertex of this.addlist[vertex]) {
+      this.removeEdges(addvertex, vertex);
+    }
+    delete this.addlist[vertex];
+  }
+  Display() {
+    for (const vertex in this.addlist) {
+      console.log(vertex + "=>" + [...this.addlist[vertex]]);
+    }
   }
 }
+const graph=new Graph()
+
+graph.addEdges("A", "B");
+graph.addEdges("B", "C");
+graph.addEdges("C", "D");
+graph.addEdges("D", "E");
+graph.addEdges("E", "B"); 
+// graph.removeVertex("B");
+graph.BFS('A')
+console.log('======================')
+graph.DFS("A")
+// graph.Display();
+console.log(graph.hasCycle("A"))
