@@ -107,6 +107,7 @@ heap.AddNew(2);
 // Displaying heap
 heap.display(); // Output: [2,3, 5, 15, 10, 8]
 console.log(heap.Peek());
-// console.log(heap.remove());
+  // console.log(heap.remove());
 console.log(heap.removeValue(3));
 heap.display();
+

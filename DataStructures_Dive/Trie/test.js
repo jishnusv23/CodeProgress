@@ -1,84 +1,48 @@
-class TrieTestNode {
+class Node {
   constructor() {
     this.children = {};
     this.isEnded = false;
   }
 }
 
-class TestTrie {
+class Trie {
   constructor() {
-    this.root = new TrieTestNode();
+    this.root = new Node();
   }
   insert(word) {
     let current = this.root;
     for (let char of word) {
       if (!current.children[char]) {
-        current.children[char] = new TrieTestNode();
+        current.children[char] = new Node();
       }
       current = current.children[char];
     }
     current.isEnded = true;
   }
-  Search(word) {
-    let node = this.root;
-
+  Print(node = this.root, result = [], printvalue = "") {
+    if (!node) return null;
+    if (node.isEnded) {
+      result.push(printvalue);
+    }
+    for (let char in node.children) {
+      this.Print(node.children[char], result, printvalue + char);
+    }
+    return result;
+  }
+  //serach()
+  seach(word) {
+    let current = this.root;
     for (let char of word) {
-      if (node.children[char]) {
-        return true;
+      if (!current.children[char]) {
+        return false;
       }
-      node = node.children[char];
+      node = node.chilren[char];
     }
     return node.isEnded;
   }
-  delete(word) {
-    this._delete(this.root, word, 0);
-  }
-  _delete(node, word, i) {
-    if (node == null) {
-      return false;
-    }
-    if (i == word.length) {
-      if (node.isEnded) {
-        node.isEnded = false;
-      }
-      return Object.keys(node.children).length == 0;
-    }
 
-    let char = word[i];
-    let childNode = node.children[char];
-
-    const cancelNode = this._delete(childNode, word, i + 1);
-    if (cancelNode) {
-      delete node.children[char];
-      return Object.keys(node.children).length == 0 && !node.isEnded;
-    }
-    return false;
-  }
-  Print(node = this.root, privateValue = "", result = []) {
-    if (node.isEnded) {
-      result.push(privateValue);
-    }
-    for (let char in node.children) {
-      this.Print(node.children[char], privateValue + char, result);
-    }
-
-    return result;
-  }
-  FindLongestString() {
-    let longest = "";
-    let queue = [[this.root, ""]];
-    while (queue.length) {
-      const [node, word] = queue.shift();
-      if (node.isEnded && word.length > longest.length) {
-        longest = word;
-      }
-      for (let char in node.children) {
-        queue.push([node.children[char], word + char]);
-      }
-    }
-    return longest;
-  }
-  Autocomplete(word) {
+  //autoComplete
+  autocomplete(word) {
     let node = this.root;
     for (let char of word) {
       if (!node.children[char]) {
@@ -86,48 +50,75 @@ class TestTrie {
       }
       node = node.children[char];
     }
-    let list = [];
-    this.CollectWords(node, list, word);
-    return list;
+    let result = [];
+    this.collectWord(node, result, word);
+    return result;
   }
-  CollectWords(node, list, word) {
+  collectWord(node, result, word) {
     if (node.isEnded) {
-      list.push(word);
+      result.push(word);
     }
+
     for (let char in node.children) {
-      this.CollectWords(node.children[char], list, word + char);
+      this.collectWord(node.children[char], result, word + char);
     }
   }
-  ShortestWord() {
-    let shortestWord = "";
+  FindLongest() {
+    let longest = "",
+      secondLongest = "";
     let queue = [[this.root, ""]];
     while (queue.length) {
       const [node, word] = queue.shift();
-      if (
-        node.isEnded &&
-        (shortestWord == "" || word.length < shortestWord.length)
-      ) {
-        shortestWord = word;
+      if (node.isEnded) {
+        if (word.length > longest.length) {
+          secondLongest = longest;
+          longest = word;
+        } else if (word.length > secondLongest.length && word !== longest) {
+          secondLongest = word;
+        }
       }
       for (let char in node.children) {
         queue.push([node.children[char], word + char]);
       }
     }
-    return shortestWord;
+    return secondLongest;
+  }
+  FindSmallest() {
+    let smallest = "";
+    let secondSmallest = "";
+    let queue = [[this.root, ""]];
+    while (queue.length) {
+      const [node, word] = queue.shift();
+      if (node.isEnded) {
+        if (smallest == "" || word.length < smallest.length) {
+          secondSmallest = smallest;
+          smallest = word;
+        } else if (
+          (secondSmallest == "" ||
+          secondSmallest.length > word.length)&&word!==smallest
+        ) {
+          secondSmallest = word;
+        }
+      }
+      for (let char in node.children) {
+        queue.push([node.children[char], word + char]);
+      }
+    }
+    return {secondSmallest,smallest};
   }
 }
-const trie = new TestTrie();
 
-// Inserting words into the trie
+const trie = new Trie();
 trie.insert("apple");
-trie.insert("app");
 trie.insert("bat");
+trie.insert("app");
+trie.insert("ap");
 trie.insert("ball");
+trie.insert("banana");
 trie.insert("batman");
-console.log(trie.Print());
-console.log(trie.Search("app"));
-console.log(trie.Autocomplete('b'))
-console.log(trie.FindLongestString())
-console.log(trie.ShortestWord())
-// console.log(trie.delete('ball'))
-// console.log(trie.Print());
+
+const result = trie.Print();
+console.log(result);
+console.log(trie.FindLongest());
+console.log(trie.FindSmallest());
+// console.log(trie.autocomplete('ba'))
