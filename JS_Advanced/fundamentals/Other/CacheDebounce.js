@@ -26,4 +26,4 @@ console.log(cacheDebounce(10))
 console.log(cacheDebounce(10))
 setTimeout(() => {
     console.log(cacheDebounce(60))
-}, 6000);
+}, 5000);
