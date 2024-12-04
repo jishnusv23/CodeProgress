@@ -1,20 +1,26 @@
-function logWrapper(fn) {
-  return function (...args) {
-    console.log(`Input arguments: ${args}`);
-    const result = fn(...args);
-    console.log(`Output result: ${result}`);
-    return result;
-  };
+function FirstCallback(data,callback){
+  setTimeout(() => {
+    console.log(data,'first')
+    callback(data+1)
+  }, 1000);
+}
+function SecondCallback(data,callback){
+  setTimeout(() => {
+    console.log(data,'second')
+    callback(data+2)
+  }, 1000);
+}
+function ThirdCallback(data,callback){
+  setTimeout(() => {
+    console.log(data,'Third')
+    callback(data+3)
+  }, 1000);
 }
 
-// Example function to wrap
-function add(a, b) {
-  return a + b;
-}
-
-// Wrapping the `add` function
-const loggedAdd = logWrapper(add);
-
-// Using the wrapped function
-const result = loggedAdd(5, 3); // Output: Logs inputs and outputs
-console.log(`Final Result: ${result}`);
+FirstCallback(1,(data)=>{
+  SecondCallback(data,(data)=>{
+    ThirdCallback(data,(data)=>{
+      console.log(data)
+    })
+  })
+})
