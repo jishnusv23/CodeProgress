@@ -16,10 +16,17 @@ const handler = {
   },
   set:function(obj,properties,value){
     obj[properties]=value
-    
+    return 
+
+  },
+  has:function(obj,properties){
+    return properties in obj
   }
 };
 
 const proxy = new Proxy(person, handler);
 
 console.log(proxy.name)
+proxy.age=90
+console.log(proxy.age)
+console.log('age' in proxy)
