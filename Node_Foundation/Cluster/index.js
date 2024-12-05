@@ -1,44 +1,38 @@
+const express = require("express");
 const cluster = require("cluster");
 const os = require("os");
-const express = require("express");
 
 if (cluster.isMaster) {
-  const numCPUs = os.cpus().length;
-  console.log(`Master process PID: ${process.pid}`);
-  console.log(`Forking ${numCPUs} workers...`);
+  const numsCPUs = os.cpus().length;
 
-  // Fork a worker for each CPU core
-  for (let i = 0; i < numCPUs; i++) {
+  //create a worker process for each cup core
+  for (let i = 0; i < numsCPUs; i++) {
     cluster.fork();
   }
 
+  //event listener for the worker process die
+
   cluster.on("exit", (worker, code, signal) => {
-    console.log(`Worker ${worker.process.pid} died. Restarting...`);
-    cluster.fork();
+    console.log(`Worker ${worker.process.pid} died,Restarting....`);
+    cluster.fork(); // automatically restart the deid worker
   });
 } else {
-  // Worker process - Create an Express server
   const app = express();
 
   app.use(express.json());
 
-  // Define a route
   app.get("/", (req, res) => {
-    console.log(`Worker ${process.pid} handling request`);
-    res.send(`Hello from Worker ${process.pid}`);
+    console.log(`worker ${process.pid} handling request`);
+    res.send(`Hello From Worker ${process.pid}`);
   });
+  const PORT=3000
+  app.listen(PORT,()=>{
+    console.log(`server is runign http://localhost:${PORT} Worker ID:${process.pid}`)
 
-  // Start the server and store the server instance
-  const PORT = 3000;
-  const server = app.listen(PORT, () => {
-    console.log(`Worker ${process.pid} started server on port ${PORT}`);
-  });
 
-  // Graceful shutdown
-  process.on("SIGTERM", () => {
-    console.log(`Worker ${process.pid} shutting down...`);
-    server.close(() => process.exit(0));
-  });
+  })
+  process.on('SIGTERM',()=>{
+    console.log(`Worker ${process.pid} shuttingDown...`)
+    Server.close(()=>process.exit(0))
+  })
 }
-
-//SAME PORT BUT DIFFERENT IP ADDRESS 
