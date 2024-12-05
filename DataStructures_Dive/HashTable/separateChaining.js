@@ -24,6 +24,7 @@ class HashTable {
       }
     }
   }
+  
   get(key) {
     const index = this.hash(key);
     const backet = this.table[index];
