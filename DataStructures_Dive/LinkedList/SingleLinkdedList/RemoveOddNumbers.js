@@ -24,25 +24,46 @@ class LinkedList {
     this.size++;
   }
 
-  RemoveOdd() {
-    if (this.isEmpty()) {
-      console.log("remove is not working empty array ");
-    }
+  // RemoveOdd() {
+  //   if (this.isEmpty()) {
+  //     console.log("remove is not working empty array ");
+  //   }
 
-    while (this.head && this.head.value % 2 !== 0) {
-      this.head = this.head.next;
-      this.size--;
-    }
+  //   while (this.head && this.head.value % 2 !== 0) {
+  //     this.head = this.head.next;
+  //     this.size--;
+  //   }
 
-    let current = this.head;
-    while (current && current.next) {
-      if (current.next.value % 2 !== 0) {
-        current.next = current.next.next;
-        this.size--;
-      } else {
-        current = current.next;
+  //   let current = this.head;
+  //   while (current && current.next) {
+  //     if (current.next.value % 2 !== 0) {
+  //       current.next = current.next.next;
+  //       this.size--;
+  //     } else {
+  //       current = current.next;
+  //     }
+  //   }
+  // }
+  RemoveOdd(){
+    if(this.isEmpty()){
+      console.log('empty')
+      return null
+    }
+    while (this.head&&this.head.value%2!==0) {
+      this.head=this.head.next
+      this.size--
+
+      
+    }
+    let current=this.head
+    while (current&&current.next) {
+      if(current.next.value%2!==0){
+        current.next=current.next.next
+        this.size--
       }
+      current=current.next
     }
+    
   }
   
   Print() {

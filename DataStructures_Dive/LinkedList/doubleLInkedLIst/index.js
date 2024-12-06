@@ -76,6 +76,7 @@ class DoublyLinkedList {
       console.log(vlaues);
     }
   }
+  
 }
 
 const list = new DoublyLinkedList();

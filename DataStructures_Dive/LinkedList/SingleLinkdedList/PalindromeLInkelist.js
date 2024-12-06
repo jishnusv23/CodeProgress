@@ -32,44 +32,77 @@ class CheckPalindrome {
     }
     console.log(result);
   }
-  isPalindrome() {
-    if (this.isEmpty() || !this.head) {
-      return true;
+  // isPalindrome() {
+  //   if (this.isEmpty() || !this.head) {
+  //     return true;
+  //   }
+
+  //   //find the middle
+
+  //   let slow = this.head;
+  //   let fast = this.head;
+  //   while (fast.next && fast.next.next) {
+  //     slow = slow.next;
+  //     fast = fast.next.next;
+  //   }
+
+  //   // reverse the half of the list
+  //   let prev = null;
+  //   let current = slow;
+  //   while (current) {
+  //     let next = current.next;
+  //     current.next = prev;
+  //     prev = current;
+  //     current = next;
+  //   }
+
+  //   //compare the first half and second half
+
+  //   let firsthalf = this.head;
+  //   let secondhalf = prev;
+  //   let isPalindrome = true;
+  //   while (secondhalf) {
+  //     if (firsthalf.value !== secondhalf.value) {
+  //       isPalindrome = false;
+  //       break;
+  //     }
+  //     firsthalf = firsthalf.next;
+  //     secondhalf = secondhalf.next;
+  //   }
+  //   return isPalindrome
+  // }
+  isPalindrome(){
+    if(this.isEmpty()){
+      return false
     }
 
-    //find the middle
-
-    let slow = this.head;
-    let fast = this.head;
-    while (fast.next && fast.next.next) {
-      slow = slow.next;
-      fast = fast.next.next;
+    let slow=this.head
+    let fast=this.head
+    while(fast.next&&fast.next.next){
+      slow=slow.next
+      fast=fast.next.next
     }
 
-    // reverse the half of the list
-    let prev = null;
-    let current = slow;
+    let prev=null
+    let current=slow
     while (current) {
-      let next = current.next;
-      current.next = prev;
-      prev = current;
-      current = next;
+      let next=current.next
+      current.next=prev
+      prev=current
+      current=next
     }
-
-    //compare the first half and second half
-
-    let firsthalf = this.head;
-    let secondhalf = prev;
-    let isPalindrome = true;
+    let firsthalf=this.head
+    let secondhalf=prev
     while (secondhalf) {
-      if (firsthalf.value !== secondhalf.value) {
-        isPalindrome = false;
-        break;
+      if(firsthalf.value!==secondhalf.value){
+        return false
+        
       }
-      firsthalf = firsthalf.next;
-      secondhalf = secondhalf.next;
+      firsthalf=firsthalf.next
+      secondhalf=secondhalf.next
     }
-    return isPalindrome
+    return true
+
   }
 }
 let list = new CheckPalindrome();
