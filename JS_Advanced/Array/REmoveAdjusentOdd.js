@@ -23,5 +23,4 @@ function RemoveAdjustOdd(arr){
     }
     return result
 }
-console.log(RemoveAdjustOdd(arr
-))
+console.log(RemoveAdjustOdd(arr))

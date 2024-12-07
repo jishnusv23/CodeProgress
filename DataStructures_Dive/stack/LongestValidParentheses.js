@@ -12,8 +12,8 @@ let longestValidParenthese=(s)=>{
             if(stack.length==0){
                 stack.push(i)
             }else{
-                console.log(stack)
-                console.log(i-stack[stack.length - 1],'=====');
+                // console.log(stack)
+                // console.log(i-stack[stack.length - 1],'=====');
                 count=Math.max(count,i-stack[stack.length-1])
             }
         }

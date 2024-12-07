@@ -1,39 +1,27 @@
-class Stack{
-    constructor(){
-        this.table=[]
+// // console.log("first")
+// let arr=[7,1,3,2,3,4,5,7,6,8]
+// let result=[]
 
-    }
-    push(value){
-        this.table.push(value)
-    }
-    pop(){
-        return this.table.pop()
-    }
-    evenStackSort(){
-        let tempStack=[]
-        let evenStack=[]
-        while (this.table.length>0) {
-            const temp=this.table.pop()
-            if(temp%2==0){
-                evenStack.push(temp)
-            }
 
-        }
-        // console.log(evenStack)
-        while(evenStack.length>0){
-            let temp=evenStack.pop()
-            while(tempStack.length>0&&tempStack[tempStack.length-1]>temp){
-                evenStack.push(tempStack.pop())
-            }
-            tempStack.push(temp)
-        }
-        return tempStack
-    }
-}
-const stack = new Stack();
-const arr = [3, 4, 5, 667, 8, 3, 45, 42, 1, 4];
+// for(let i=0;i<arr.length;i++){
 
-for (let ele of arr) {
-  stack.push(ele);
-}
-console.log(stack.evenStackSort())
+//     if((arr[i+1]%2!==0&&arr[i]%2!==0)){
+//         arr.splice(i,2)
+//         i--
+//     }
+// }
+// console.log(arr)
+
+// function reverseString(str){
+//     const stack=[]
+//     let temp=""
+//     for(let char of str){
+//         stack.push(char)
+//     }   
+//     while(stack.length){
+//         temp+=stack.pop()
+//     }
+//     return temp
+
+// }
+// console.log(reverseString('jishnu'))
