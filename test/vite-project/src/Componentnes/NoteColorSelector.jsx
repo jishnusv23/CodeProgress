@@ -1,19 +1,10 @@
 import React, { useState } from "react";
 
-// Array of color options
-const COLOR_OPTIONS = [
-  "#FF6B6B", // Red
-  "#4ECDC4", // Teal
-  "#45B7D1", // Blue
-  "#FDCB6E", // Yellow
-  "#6C5CE7", // Purple
-  "#A8E6CF", // Mint Green
-  "#FF8ED4", // Pink
-];
+const COLOR_OPTIONS = ["red", "Teal", "blue", "yellow", "purple", "pink"];
 
-const NoteColorSelector = ({ initialColor, onColorChange }) => {
+const NoteColorSelector = () => {
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(initialColor);
+  const [selectedColor, setSelectedColor] = useState(null);
 
   const handleColorButtonClick = () => {
     setIsColorPickerOpen(true);
@@ -21,7 +12,7 @@ const NoteColorSelector = ({ initialColor, onColorChange }) => {
 
   const handleColorSelect = (color) => {
     setSelectedColor(color);
-    onColorChange(color);
+    color;
     setIsColorPickerOpen(false);
   };
 
