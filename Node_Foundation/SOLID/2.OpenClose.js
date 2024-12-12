@@ -34,10 +34,25 @@ class DiscountCalculator {
 
 const calculator = new DiscountCalculator();
 
-// console.log(calculator.calculateDiscount(regularCustomer))
-// console.log(calculator.calculateDiscount(primiumCustomer))
-// console.log(calculator.calculateDiscount(vipCustomer))
+console.log(calculator.calculateDiscount(regularCustomer));
+console.log(calculator.calculateDiscount(primiumCustomer));
+console.log(calculator.calculateDiscount(vipCustomer));
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-var x = 10;
-console.log(x); // 10
-console.log(this.x); // 10
+//Without open-close principle
+
+class DiscountCalculatorWithout {
+  calculateDiscount(customerType) {
+    if (customerType === "regular") {
+      
+      return 5;
+    } else if (customerType === "primiumcustomer") {
+      return 10;
+    } else {
+      return 0;
+    }
+  }
+}
+const calculatorWithout = new DiscountCalculatorWithout();
+console.log(calculatorWithout.calculateDiscount("regular"));
+console.log(calculatorWithout.calculateDiscount("primiumcustomer"));
