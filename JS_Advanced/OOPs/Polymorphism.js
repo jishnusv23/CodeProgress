@@ -18,13 +18,13 @@ class Dog extends Animal {
 class Cat extends Animal {
   // Overriding the makeSound method
   makeSound() {
-    console.log("Meow! Meow!");
+    console.log("Meow! Meow!")
   }
 }
 
 // Creating objects of Dog and Cat
-const myDog = new Dog();
-const myCat = new Cat();
+const myDog = new Dog()
+const myCat = new Cat()
 
 // Calling the makeSound method (demonstrating polymorphism)
 myDog.makeSound(); // Output: Woof! Woof!
