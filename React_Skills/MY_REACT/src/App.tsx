@@ -1,5 +1,7 @@
 import "./App.css";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import HtmlFor from "./Components/Form/HtmlFor";
+import NotFound from "./Components/404/NotFound";
 // import NestedSelection from "./Components/NestedSelection/NestedSelection";
 // import CounterRedux from "./Components/CounterRedux";
 // import Parent from "./Components/CustomHooks/Parent";
@@ -15,32 +17,37 @@ import HtmlFor from "./Components/Form/HtmlFor";
 // import Todo from "./Components/useReducer/Todo";
 // import ParentComp from "./Components/Parent-To-Child/ParentComp";
 // import UseReducerCompo from "./Components/useReducer/UseReducerCompo";
-// import StateCounter from './Components/StateCounter'
+import StateCounter from "./Components/StateCounter";
+import Table from "./Components/ui/Table/Table";
 
 function App() {
   return (
     <>
-      <div className=" text-xl">
-        <h1 className="font-bold text-3xl">APP For Study </h1>
-        {/* <StateCounter/> */}
-        {/* <ParentComp /> */}
-        {/* <UseReducerCompo /> */}
-        {/* <Todo/> */}
+      {/* <ParentComp /> */}
+      {/* <UseReducerCompo /> */}
+      {/* <Todo/> */}
 
-        {/* <FirstExample/> */}
-        {/* <Another /> */}
-        {/* <Debounce /> */}
-        {/* <Parent/> */}
-        {/* <Problem1 /> */}
-        {/* <Timer /> */}
-        {/* <UnControlled/> */}
-        {/* <Higher />
+      {/* <FirstExample/> */}
+      {/* <Another /> */}
+      {/* <Debounce /> */}
+      {/* <Parent/> */}
+      {/* <Problem1 /> */}
+      {/* <Timer /> */}
+      {/* <UnControlled/> */}
+      {/* <Higher />
         <Higher2 /> */}
-        {/* <Parent/> */}
-        {/* <CounterRedux /> */}
-        {/* <NestedSelection/> */}
-        <HtmlFor/>
-      </div>
+      {/* <Parent/> */}
+      {/* <CounterRedux /> */}
+      {/* <NestedSelection/> */}
+
+      <Router>
+        <Routes>
+          <Route path="/htmlfor" element={<HtmlFor />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<StateCounter />} />
+          <Route path="/table" element={<Table />} />
+        </Routes>
+      </Router>
     </>
   );
 }
