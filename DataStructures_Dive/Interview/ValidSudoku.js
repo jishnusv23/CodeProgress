@@ -59,4 +59,4 @@ function isValidSudoku(board) {
     return true
     
 }
-console.log(isValidSudoku(board))
+console.info(isValidSudoku(board))
